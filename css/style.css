@@ -1,0 +1,1034 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap');
+
+:root {
+    --bg-main: #1A051D; /* Royal Amethyst */
+    --bg-card: #2B0C30; /* Royal Velvet */
+    --text-dark: #F1E4C3; /* Champagne Gold */
+    --text-muted: #A384A8;
+    --accent-gold: #F1E4C3;
+    --accent-copper: #E0A899; /* Soft Rose Gold */
+    --border-dark: #F1E4C3;
+    --border-light: #3F1246; /* Deep Plum Wine */
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --transition-fast: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-slow: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --shadow-subtle: 0 4px 15px rgba(241, 228, 195, 0.05);
+    --shadow-medium: 0 10px 30px rgba(241, 228, 195, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.75;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+/* Base Layout Containers */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 7.5rem 0;
+}
+
+/* Typography elements */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-dark);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+p {
+    font-weight: 300;
+}
+
+/* Header & Navigation */
+header {
+    width: 100%;
+    background: rgba(26, 5, 29, 0.96);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
+}
+
+.logo span {
+    color: var(--accent-gold);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2.2rem;
+    flex-wrap: nowrap;
+}
+
+.nav-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    position: relative;
+    padding: 0.3rem 0;
+    white-space: nowrap;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent-gold);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--text-dark);
+}
+
+.nav-link.nav-btn {
+    border: 1px solid var(--accent-gold);
+    padding: 0.6rem 1.4rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    border-radius: 0;
+    color: var(--accent-gold);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-link.nav-btn::after {
+    display: none !important;
+}
+
+.nav-link.nav-btn:hover {
+    background: var(--accent-gold);
+    color: var(--bg-main) !important;
+}
+
+.nav-btn {
+    border: 1px solid var(--accent-gold);
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    border-radius: 0;
+    color: var(--accent-gold);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: var(--accent-gold);
+    color: var(--bg-main) !important;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2.2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 0;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-primary {
+    background: var(--accent-gold);
+    color: var(--bg-main);
+    border: 1px solid var(--accent-gold);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--text-dark);
+    border-color: var(--text-dark);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-dark);
+    border: 1px solid var(--text-dark);
+}
+
+.btn-secondary:hover {
+    background: var(--accent-gold);
+    color: var(--bg-main);
+    border-color: var(--accent-gold);
+}
+
+/* Sections Header */
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-title span {
+    font-style: italic;
+    color: var(--accent-gold);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    font-weight: 600;
+    margin-bottom: 3.5rem;
+}
+
+/* UNIQUE LAYOUT 1: ATELIER DIAMOND SHIELD HERO */
+.hero-sec {
+    padding-top: 11rem;
+    background: linear-gradient(180deg, #1A051D 0%, #0c020e 100%);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.hero-visual-frame {
+    border: 1px solid var(--accent-gold);
+    padding: 1.5rem;
+    position: relative;
+    background: var(--bg-card);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    box-shadow: var(--shadow-medium);
+}
+
+.hero-visual-frame img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    border: 1px solid var(--accent-gold);
+}
+
+.hero-content-box {
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--bg-card) 0%, #3f1246 100%);
+    border: 1px solid var(--border-light);
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+}
+
+.hero-content h1 span {
+    font-weight: 400;
+    font-style: italic;
+    color: var(--accent-gold);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* UNIQUE LAYOUT 2: THE VELVET PILLARS (Diamond Panels) */
+.pillars-sec {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.pillars-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.pillar-node {
+    width: 300px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    padding: 4rem 2.5rem;
+    text-align: center;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    transition: var(--transition-slow);
+}
+
+.pillar-arch-num {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+}
+
+.pillar-node:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold);
+    box-shadow: var(--shadow-medium);
+}
+
+.pillar-node h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.pillar-node p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+/* UNIQUE LAYOUT 3: THE VELVET VAULT (Portfolio with diamond badge) */
+.vault-sec {
+    background: var(--bg-main);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.vault-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.vault-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.vault-img-box {
+    height: 320px;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.vault-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.vault-card:hover .vault-img-box img {
+    transform: scale(1.02);
+}
+
+.vault-body {
+    padding: 2.2rem;
+}
+
+.vault-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.vault-body p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-bottom: 1.5rem;
+}
+
+.vault-link {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+/* UNIQUE LAYOUT 4: THE WEAVE LOOP (Diamond flowchart timeline) */
+.loop-sec {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.loop-wrap {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 4rem;
+}
+
+.loop-wrap::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--border-light);
+    z-index: 1;
+}
+
+.loop-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 0 1rem;
+}
+
+.loop-node {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-dark);
+    margin: 0 auto 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    transition: var(--transition-fast);
+}
+
+.loop-step:hover .loop-node {
+    background: var(--accent-gold);
+    color: var(--bg-main);
+}
+
+.loop-details h4 {
+    font-size: 1.25rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.loop-details p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+/* UNIQUE LAYOUT 5: ATELIER CALIBRATION TABLE */
+.table-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    padding: 3rem;
+}
+
+.metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.metrics-table th, .metrics-table td {
+    padding: 1.2rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.metrics-table th {
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.metrics-table td {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+}
+
+.metrics-table td span {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* UNIQUE LAYOUT 6: THE MASTER KNITTER PLEDGE */
+.pledge-sec {
+    background: var(--bg-main);
+    color: var(--text-dark);
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.pledge-box {
+    max-width: 950px;
+    margin: 0 auto;
+    border: 1px solid var(--accent-gold);
+    padding: 4rem;
+    background: var(--bg-card);
+    color: var(--text-dark);
+}
+
+.pledge-sec h2 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.pledge-sec p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+/* UNIQUE LAYOUT 7: MEET THE WEAVING MASTERS */
+.weavers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.weaver-strip-card {
+    background: var(--bg-card);
+    border-bottom: 3px solid var(--accent-gold);
+    padding-bottom: 2rem;
+    border-left: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.weaver-img-box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 2rem auto 1.5rem auto;
+    border: 2px solid var(--accent-gold);
+}
+
+.weaver-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.weaver-name {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+    padding: 0 1rem;
+}
+
+.weaver-role {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent-gold);
+    font-weight: 600;
+    padding: 0 1rem;
+}
+
+.weaver-bio {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+/* UNIQUE LAYOUT 8: PRESS CLIPPINGS */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.review-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    padding: 3.5rem;
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+    border-top: 4px solid var(--accent-gold);
+}
+
+.review-text {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.review-author {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* UNIQUE LAYOUT 9: VIP REGISTRY */
+.enroll-sec {
+    background: var(--bg-main);
+}
+
+.enroll-box {
+    max-width: 650px;
+    margin: 0 auto;
+    border: 2px solid var(--accent-gold);
+    padding: 4.5rem;
+    position: relative;
+    background: var(--bg-card);
+}
+
+.enroll-box::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 1px solid var(--border-light);
+    pointer-events: none;
+}
+
+.enroll-form {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.enroll-input {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid var(--border-light);
+    background: var(--bg-main);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+}
+
+.enroll-input:focus {
+    background: var(--bg-card);
+    border-color: var(--accent-gold);
+}
+
+/* Subpages Styling */
+.sub-hero {
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    background: linear-gradient(180deg, #1A051D 0%, #2B0C30 100%);
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.sub-content-sec {
+    padding: 6rem 0;
+}
+
+.sub-content-box {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.sub-content-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.sub-content-box p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.8rem;
+}
+
+/* About Layout Classes */
+.about-row {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.about-img-box {
+    border: 1px solid var(--accent-gold);
+    padding: 1rem;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-subtle);
+}
+
+.about-img-box img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Contact Grid Layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+}
+
+.contact-form-box h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--border-light);
+    background: var(--bg-main);
+    color: var(--text-dark);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--accent-gold);
+}
+
+.contact-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.8rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.contact-details h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* Policy Paragraph line constraint styling helper */
+.policy-p {
+    max-width: 800px;
+    text-align: justify;
+    margin-bottom: 1.8rem;
+    font-size: 1.05rem;
+    width: 100%;
+}
+
+/* Blog Layout Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.blog-card {
+    padding: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+}
+
+.blog-card-img {
+    height: 240px;
+    overflow: hidden;
+}
+
+.blog-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.blog-card:hover .blog-card-img img {
+    transform: scale(1.03);
+}
+
+.blog-card-body {
+    padding: 2rem;
+}
+
+.blog-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.blog-card-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.blog-card-link {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+/* Footer Section */
+footer {
+    background: #0c020e;
+    color: #FAF8F5;
+    padding: 5rem 0 3rem 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    gap: 5rem;
+    margin-bottom: 4rem;
+}
+
+.footer-desc {
+    font-size: 0.95rem;
+    color: rgba(250, 248, 245, 0.65);
+    line-height: 1.8;
+}
+
+.footer-title {
+    color: #FFF;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-links a {
+    font-size: 0.95rem;
+    color: rgba(250, 248, 245, 0.65);
+}
+
+.footer-links a:hover {
+    color: var(--accent-gold);
+    padding-left: 5px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: rgba(250, 248, 245, 0.65);
+}
+
+.info-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 0 2rem;
+    border-top: 1px solid rgba(250, 248, 245, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: rgba(250, 248, 245, 0.45);
+}
+
+.policy-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.policy-links a {
+    font-size: 0.9rem;
+    color: rgba(250, 248, 245, 0.45);
+}
+
+.policy-links a:hover {
+    color: var(--accent-gold);
+}
+
+/* Responsive Editorial Layout */
+@media (max-width: 1100px) {
+    .nav-container {
+        padding: 1.2rem 1.5rem;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .nav-menu {
+        gap: 1.2rem;
+    }
+    .nav-link {
+        font-size: 0.78rem;
+    }
+    .nav-link.nav-btn {
+        padding: 0.4rem 1rem !important;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-grid, .contact-grid, .reviews-grid, .vault-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+    .product-grid, .art-grid, .blog-grid, .weavers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .section-title {
+        font-size: 2.4rem;
+    }
+    .about-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .loop-wrap {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .loop-wrap::before {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid, .art-grid, .press-grid, .blog-grid, .weavers-grid, .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 3.2rem;
+    }
+}
